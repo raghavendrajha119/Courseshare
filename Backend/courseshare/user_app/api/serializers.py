@@ -1,4 +1,4 @@
-from ..models import CustomUser
+from ..models import CustomUser,Student
 from rest_framework import serializers
 
 class UserSerializer(serializers.ModelSerializer):
@@ -21,3 +21,19 @@ class UserSerializer(serializers.ModelSerializer):
         account.set_password(password)
         account.save()
         return account
+    
+class StudentSerializer(serializers.ModelSerializer):
+    user = UserSerializer()
+    
+    class Meta:
+        model = Student
+        fields = '__all__'
+    
+    def create(self, validated_data):
+        user_data = validated_data.pop('user')
+        user_serializer = UserSerializer(data=user_data)
+        
+        if user_serializer.is_valid(raise_exception=True):
+            user = user_serializer.save()
+            student = Student.objects.create(user=user, **validated_data)
+            return student
