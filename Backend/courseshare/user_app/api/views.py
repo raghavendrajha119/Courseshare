@@ -6,7 +6,8 @@ from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate
-from ..models import CustomUser
+from rest_framework import generics
+from ..models import CustomUser,Student,Educator
 
 class Register_view(APIView):
     def post(self,request):
@@ -85,7 +86,7 @@ class Login_view(APIView):
             if user.role == 'educator':
                 educator=user.educator_account
                 if educator is not None:
-                    educator_data=EducatorSerializer(educator)
+                    educator_data=EducatorSerializer(educator).data
                     data['data']=educator_data
             return Response(data,status=status.HTTP_200_OK)
         else:
@@ -108,4 +109,10 @@ class Users_view(APIView):
         users=CustomUser.objects.all()
         serializer=UserSerializer(users,many=True)
         return Response(serializer.data)
+    
+
+#profile page for student and educator i will use generic concrete api view for this
+class StudentProfileView(generics.RetrieveUpdateDestroyAPIView):
+    queryset=Student.objects.all()
+    serializer_class=StudentSerializer
     

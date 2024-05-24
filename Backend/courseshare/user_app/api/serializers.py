@@ -45,8 +45,8 @@ class EducatorSerializer(serializers.ModelSerializer):
         fields='__all__'
 
     def create(self, validated_data):
-        user_date = validated_data.pop('user')
-        user_serializer=UserSerializer(data=user_date)
+        user_data = validated_data.pop('user')
+        user_serializer=UserSerializer(data=user_data)
         if user_serializer.is_valid(raise_exception=True):
             user=user_serializer.save()
             educator=Educator.objects.create(user=user, **validated_data)
