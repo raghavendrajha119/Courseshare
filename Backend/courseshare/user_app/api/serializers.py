@@ -1,4 +1,4 @@
-from ..models import CustomUser,Student
+from ..models import CustomUser,Student,Educator
 from rest_framework import serializers
 
 class UserSerializer(serializers.ModelSerializer):
@@ -37,3 +37,17 @@ class StudentSerializer(serializers.ModelSerializer):
             user = user_serializer.save()
             student = Student.objects.create(user=user, **validated_data)
             return student
+
+class EducatorSerializer(serializers.ModelSerializer):
+    user=UserSerializer()
+    class Meta:
+        model=Educator
+        fields='__all__'
+
+    def create(self, validated_data):
+        user_date = validated_data.pop('user')
+        user_serializer=UserSerializer(data=user_date)
+        if user_serializer.is_valid(raise_exception=True):
+            user=user_serializer.save()
+            educator=Educator.objects.create(user=user, **validated_data)
+            return educator

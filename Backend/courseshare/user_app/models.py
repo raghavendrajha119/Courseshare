@@ -13,3 +13,9 @@ class Student(models.Model):
     user=models.OneToOneField(CustomUser, on_delete=models.CASCADE,related_name='student_account')
     def __str__(self):
         return self.user.username
+    
+class Educator(models.Model):
+    educator_id=models.CharField(max_length=10)
+    user=models.OneToOneField(CustomUser,on_delete=models.CASCADE,related_name='educator_account')
+    def __str__(self):
+        return self.user.username
