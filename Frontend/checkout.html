@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/checkout.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="created_courses.html" class="nav-item">Created Courses</a>
+            <a href="enrolled_courses.html" class="nav-item">Enrolled Courses</a>
+        </div>
+        <div class="nav-right" id="nav-right">
+            <div class="dropdown" id="profile-dropdown">
+                <button class="dropbtn">Profile</button>
+                <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="update_credentials.html">Update Credentials</a>
+                    <a href="#" id="logout-button">Logout</a>
+                </div>
+            </div>
+            <a href="login.html" class="nav-item" id="login-link">Login</a>
+            <a href="register.html" class="nav-item" id="register-link">Register</a>
+        </div>
+    </nav>
+
+    <h1>Checkout</h1>
+    <div id="checkout-container">
+        <p>Course ID: <span id="course-id"></span></p>
+        <p>Course Name: <span id="course-name"></span></p>
+        <p>Price: $<span id="course-price"></span></p>
+        <form id="payment-form">
+            <div id="card-element">
+                <!-- A Stripe Element will be inserted here. -->
+            </div>
+            <!-- Used to display form errors. -->
+            <div id="card-errors" role="alert"></div>
+            <button id="pay-now-btn">Pay Now</button>
+        </form>
+    </div>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/checkout.js"></script>
+    
+</body>
+</html>

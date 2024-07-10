@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/course_card.css">
+    <title>Courses Created</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="created_courses.html" class="nav-item">Created Courses</a>
+            <a href="enrolled_courses.html" class="nav-item">Enrolled Courses</a>
+        </div>
+        <div class="nav-right">
+            <div class="dropdown" id="profile-dropdown">
+                <button class="dropbtn">Profile</button>
+                <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="update_credentials.html">Update Credentials</a>
+                    <a href="#" id="logout-button">Logout</a>
+                </div>
+            </div>
+            <a href="login.html" class="nav-item" id="login-link">Login</a>
+            <a href="register.html" class="nav-item" id="register-link">Register</a>
+        </div>
+    </nav>
+
+    <h1>Created Courses</h1>
+    <div id="course-list" class="course-list">
+        <!-- Course cards will be dynamically added here -->
+    </div>
+
+    <button id="add-course-btn" class="add-course-btn">Add Course</button>
+
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/created_courses.js"></script>
+</body>
+</html>

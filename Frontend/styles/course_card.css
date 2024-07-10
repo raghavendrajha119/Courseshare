@@ -1,0 +1,68 @@
+/* styles/course_card.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+.course-list, .course-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.course-card {
+    border: 1px solid #333;
+    border-radius: 8px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    overflow: hidden;
+    background-color: #1E1E1E;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+}
+
+.course-card .course-thumbnail {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.course-card .course-info {
+    padding: 15px;
+}
+
+.course-card .course-info h2 {
+    font-size: 24px;
+    margin: 0 0 10px;
+    color: #FFFFFF;
+}
+
+.course-card .course-info p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #B0B0B0;
+}
+
+.course-card .course-meta {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: #2E2E2E;
+    border-top: 1px solid #3A3A3A;
+}
+
+.course-card .course-meta div {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #E0E0E0;
+}

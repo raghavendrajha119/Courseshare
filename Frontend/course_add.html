@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Course</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="created_courses.html" class="nav-item">Created Courses</a>
+            <a href="enrolled_courses.html" class="nav-item">Enrolled Courses</a>
+        </div>
+        <div class="nav-right">
+            <div class="dropdown" id="profile-dropdown">
+                <button class="dropbtn">Profile</button>
+                <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="update_credentials.html">Update Credentials</a>
+                    <a href="#" id="logout-button">Logout</a>
+                </div>
+            </div>
+            <a href="login.html" class="nav-item" id="login-link">Login</a>
+            <a href="register.html" class="nav-item" id="register-link">Register</a>
+        </div>
+    </nav>
+
+    <h1>Add New Course</h1>
+    <div class="form-container">
+        <form id="course-form" enctype="multipart/form-data">
+            <label for="Coursename">Course Name:</label>
+            <input type="text" id="Coursename" name="Coursename" required>
+            <label for="Institutename">Institute Name:</label>
+            <input type="text" id="Institutename" name="Institutename" required>
+            <label for="Details">Details:</label>
+            <textarea id="Details" name="Details" required></textarea>
+            <label for="Language">Language:</label>
+            <input type="text" id="Language" name="Language" required>
+            <label for="Coursefee">Course Fee:</label>
+            <input type="number" step="0.01" id="Coursefee" name="Coursefee" required>
+            <label for="Duration">Duration:</label>
+            <input type="text" id="Duration" name="Duration" required>
+            <label for="Thumbnail">Course Thumbnail:</label>
+            <input type="file" id="Thumbnail" name="Thumbnail" accept="image/*" required>
+            <button type="submit">Add Course</button>
+        </form>
+        <div id="course-error" class="error-message"></div>
+    </div>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/course_add.js"></script>
+</body>
+</html>

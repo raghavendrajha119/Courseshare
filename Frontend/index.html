@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course List</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/course_card.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body class="antialiased bg-gray-200 font-sans">
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="created_courses.html" class="nav-item">Created Courses</a>
+            <a href="enrolled_courses.html" class="nav-item">Enrolled Courses</a>
+        </div>
+        <div class="nav-right">
+            <div class="dropdown" id="profile-dropdown">
+                <button class="dropbtn">Profile</button>
+                <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="update_credentials.html">Update Credentials</a>
+                    <a href="#" id="logout-button">Logout</a>
+                </div>
+            </div>
+            <a href="login.html" class="nav-item" id="login-link">Login</a>
+            <a href="register.html" class="nav-item" id="register-link">Register</a>
+        </div>
+    </nav>
+
+    <h1>Course List</h1>
+    <div id="course-list" class="course-list"></div>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/auth.js"></script>
+</body>
+</html>
