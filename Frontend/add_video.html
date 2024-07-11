@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Videos to Course</title>
+    <!-- <link rel="stylesheet" href="styles/styles.css"> -->
     <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/course_card.css">
-    <title>Courses Created</title>
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <nav class="navbar">
@@ -29,15 +30,19 @@
         </div>
     </nav>
 
-    <h1>Created Courses</h1>
-    <div id="course-list" class="course-list">
-        <!-- Course cards will be dynamically added here -->
+    <h1>Add Videos to Course</h1>
+    <div class="form-container">
+        <form id="video-form">
+            <div id="videos-container">
+                <!-- Dynamic video fields will be added here -->
+            </div>
+            <button type="button" id="add-video-btn">Add Video</button>
+            <button type="submit">Add Videos</button>
+        </form>
+        <div id="video-error" class="error-message"></div>
     </div>
-
-    <button id="add-course-btn" class="enroll-btn">Add Course</button>
-
     <script src="scripts/load_footer.js"></script>
     <script src="scripts/auth.js"></script>
-    <script src="scripts/created_courses.js"></script>
+    <script src="scripts/add_video.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
-/* styles/course_detail.css */
+/* styles/coursedetail.css */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,34 +15,89 @@ h1 {
     color: #FFFFFF;
 }
 
+.course-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .course-detail {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    flex-direction: row;
+    background-color: #20013e;;
+    border-radius: 8px;
+    padding: 5px;
+    width: 80%;
+    max-width: 1000px;
 }
 
 .course-detail img {
     width: 300px;
     height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    border-radius: 2;
+    margin-right: 20px;
 }
 
-.course-detail h2 {
-    font-size: 24px;
-    margin: 10px 0;
-    color: #FFFFFF;
+.course-detail-info {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: center;
 }
 
-.course-detail p {
-    font-size: 18px;
-    margin: 5px 0;
-    color: #B0B0B0;
+.course-detail-info h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.course-detail-info p {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.625;
+    color: rgba(156, 163, 175, 1);
+}
+
+.course-detail-info .lists {
+    margin-bottom: 1.5rem;
+    flex: 1 1 0%;
+    color: rgba(156, 163, 175, 1);
+}
+
+.course-detail-info .lists .list {
+    margin-bottom: 0.5rem;
+    display: flex;
+    margin-left: 0.5rem;
+}
+
+.course-detail-info .lists .list svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+    color: rgba(167, 139, 250, 1);
+}
+
+.action {
+    border: none;
+    outline: none;
+    display: inline-block;
+    border-radius: 0.25rem;
+    background-color: rgba(167, 139, 250, 1);
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(17, 24, 39, 1);
 }
 
 .enroll-btn {
-    background-color: #007bff;
+    background-color: #5c0df0;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -56,5 +112,33 @@ h1 {
 }
 
 .enroll-btn:hover {
-    background-color: #0056b3;
+    background-color: #3f00b3;
+}
+
+#video-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#video-list li {
+    margin-bottom: 20px;
+}
+
+#video-list h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#video-list iframe {
+    width: 100%;
+    height: 315px;
+    border: none;
+}
+#course-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 }

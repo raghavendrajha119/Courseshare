@@ -1,6 +1,6 @@
 /* styles/course_card.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat Alternates', Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,14 +16,22 @@ body {
 }
 
 .course-card {
-    border: 1px solid #333;
-    border-radius: 8px;
+    border: 1px solid #000000;
+    border-radius: 2.5px;
     margin: 10px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 240px; /* Reduced width for smaller cards */
+    box-shadow: 0 4px 8px rgba(138, 136, 136, 0.2);
     transition: transform 0.3s;
     overflow: hidden;
-    background-color: #1E1E1E;
+    background-color: #20013e;
+    text-align: center;
+}
+
+/* Adjustments for different screen sizes */
+@media (min-width: 1200px) {
+    .course-card {
+        width: calc(25% - 20px); /* Four cards per row on 15.6in laptop screen */
+    }
 }
 
 .course-card:hover {
@@ -31,9 +39,10 @@ body {
 }
 
 .course-card .course-thumbnail {
-    height: 200px;
+    height: 160px; /* Reduced thumbnail height */
     background-size: cover;
     background-position: center;
+    border-radius: 5px 5px 0 0;
 }
 
 .course-card .course-info {
@@ -41,13 +50,13 @@ body {
 }
 
 .course-card .course-info h2 {
-    font-size: 24px;
+    font-size: 20px; /* Reduced font size for title */
     margin: 0 0 10px;
     color: #FFFFFF;
 }
 
 .course-card .course-info p {
-    font-size: 16px;
+    font-size: 14px; /* Reduced font size for description */
     margin: 5px 0;
     color: #B0B0B0;
 }
@@ -55,14 +64,59 @@ body {
 .course-card .course-meta {
     display: flex;
     justify-content: space-between;
+    margin: 5px 10px;
     padding: 10px 15px;
-    background-color: #2E2E2E;
+    background-color: #5c0df0;
     border-top: 1px solid #3A3A3A;
+    font-size: 16px; /* Reduced font size for meta information */
 }
 
 .course-card .course-meta div {
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 12px; /* Reduced font size for meta details */
     color: #E0E0E0;
+    margin-right: 10px;
+}
+
+.course-card button {
+    padding: 8px 20px; /* Reduced padding for buttons */
+    display: block;
+    margin: 20px auto 10px;
+    border-radius: 8px;
+    border: none;
+    background: #6b64f3;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.course-card button:hover {
+    background: #534bf3;
+}
+
+/* Additional styles for the card border */
+.card .card-border-top {
+    width: 60%;
+    height: 3%;
+    background: #6b64f3;
+    margin: auto;
+    border-radius: 0px 0px 15px 15px;
+}
+.enroll-btn {
+    background-color: #5c0df0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+}
+.enroll-btn:hover {
+    background-color: #3f00b3;
 }

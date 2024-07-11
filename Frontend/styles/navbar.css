@@ -5,6 +5,7 @@
     align-items: center;
     background-color: #1F1F1F;
     padding: 10px;
+    font: 'Montserrat Alternates';
 }
 
 .nav-left, .nav-right {

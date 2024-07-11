@@ -1,3 +1,5 @@
+// course_add.js
+
 document.addEventListener("DOMContentLoaded", function() {
     const courseForm = document.getElementById('course-form');
     const accessToken = localStorage.getItem('access_token');
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(data => {
             if (data.id) {
-                window.location.href = 'index.html';
+                window.location.href = `add_video.html?course_id=${data.id}`;
             } else {
                 document.getElementById('course-error').innerText = data.error || 'Error adding course';
             }
