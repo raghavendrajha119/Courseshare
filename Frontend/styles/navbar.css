@@ -1,4 +1,9 @@
-/* navbar.css */
+body a{
+    font-family: 'Montserrat Alternates';
+}
+button{
+    font-family: 'Montserrat Alternates';
+}
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -32,6 +37,7 @@
     cursor: pointer;
     font-size: 16px;
     margin: 0 15px;
+    position: relative;
 }
 
 .dropdown {
@@ -46,6 +52,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    right: 0;
 }
 
 .dropdown-content a {
@@ -66,3 +73,56 @@
 .dropdown:hover .dropbtn {
     background-color: #444;
 }
+.search-label {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #3D3D3D;
+    padding: 9px;
+    cursor: text;
+}
+
+.search-label:hover {
+    border-color: gray;
+}
+
+.search-label:focus-within {
+    background: #464646;
+    border-color: gray;
+}
+
+.search-label input {
+    outline: none;
+    width: 100%;
+    border: none;
+    background: none;
+    color: rgb(114, 111, 111);
+    padding-left: 5px;
+}
+
+.search-label input:focus + .slash-icon,
+.search-label input:valid + .slash-icon {
+    display: none;
+}
+
+.search-label input:valid ~ .search-icon {
+    display: block;
+}
+
+.search-label svg,
+.slash-icon {
+    position: absolute;
+    color: #7e7e7e;
+}
+
+.search-icon {
+    display: none;
+    width: 12px;
+    height: auto;
+    right: 7px;
+}
+

@@ -1,60 +1,33 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const token = localStorage.getItem('access_token');
-    if (!token) {
-        window.location.href = 'login.html';
-        return;
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    const updateForm = document.getElementById('update-form');
+    const updateError = document.getElementById('update-error');
 
-    // Fetch user profile data
-    fetch('http://127.0.0.1:8000/account/profile/', {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`,
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('username').value = data.username;
-        document.getElementById('email').value = data.email;
-    })
-    .catch(error => console.error('Error fetching profile:', error));
+    if (updateForm) {
+        updateForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(updateForm);
 
-    // Update user profile data
-    document.getElementById('account-form').addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const newUsername = document.getElementById('new-username').value;
-        const newEmail = document.getElementById('new-email').value;
-
-        fetch('http://127.0.0.1:8000/account/profile/', {
-            method: 'PUT',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: newUsername,
-                email: newEmail,
+            fetch('http://localhost:8000/account/update-profile/', {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+                },
+                body: formData,
             })
-        })
-        .then(response => {
-            if (response.ok) {
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Profile update failed');
+                }
                 return response.json();
-            } else if (response.status === 204) {
-                return {}; // No content
-            } else {
-                throw new Error('Failed to update profile');
-            }
-        })
-        .then(data => {
-            if (data.username) {
-                document.getElementById('username').value = data.username;
-            }
-            if (data.email) {
-                document.getElementById('email').value = data.email;
-            }
-            alert('Profile updated successfully');
-        })
-        .catch(error => console.error('Error updating profile:', error));
-    });
+            })
+            .then(data => {
+                console.log('Profile updated successfully:', data);
+                window.location.href = 'account.html';
+            })
+            .catch(error => {
+                updateError.innerText = 'Failed to update profile. Please try again.';
+                console.error('Error updating profile:', error);
+            });
+        });
+    }
 });

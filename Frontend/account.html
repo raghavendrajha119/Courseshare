@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/account.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="created_courses.html" class="nav-item">Created Courses</a>
+            <a href="enrolled_courses.html" class="nav-item">Enrolled Courses</a>
+        </div>
+        <div class="nav-right">
+            <div class="dropdown" id="profile-dropdown">
+                <button class="dropbtn">Profile</button>
+                <div class="dropdown-content">
+                    <a href="account.html">Account</a>
+                    <a href="update_credentials.html">Update Credentials</a>
+                    <a href="#" id="logout-button">Logout</a>
+                </div>
+            </div>
+            <a href="login.html" class="nav-item" id="login-link">Login</a>
+            <a href="register.html" class="nav-item" id="register-link">Register</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div id="profile-info">
+            <!-- Profile information will be dynamically filled by JavaScript -->
+        </div>
+        <button id="change-password-btn" >Change Password</button>
+    </div>
+    <script src="scripts/load_footer.js"></script>
+    <script src="scripts/checktoken.js"></script>
+    <script src="scripts/account.js"></script>
+</body>
+</html>

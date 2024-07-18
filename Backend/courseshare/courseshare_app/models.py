@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 
 class CourseList(models.Model):
     Coursename = models.CharField(max_length=100)
@@ -17,10 +17,9 @@ class CourseList(models.Model):
         return self.Coursename
     
 class Enrollment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     course = models.ForeignKey(CourseList, on_delete=models.CASCADE)
     enrolled_date = models.DateTimeField(auto_now_add=True)
-    
 
 class Video(models.Model):
     course = models.ForeignKey(CourseList, on_delete=models.CASCADE, related_name='videos')
@@ -30,4 +29,3 @@ class Video(models.Model):
 
     def __str__(self):
         return self.title
-

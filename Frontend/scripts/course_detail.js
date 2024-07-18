@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const videoList = document.getElementById('video-list');
     const urlParams = new URLSearchParams(window.location.search);
     const courseId = urlParams.get('id');
-
-    // Fetch course details
     fetch(`http://localhost:8000/courseshare/course/${courseId}`)
         .then(response => {
             if (!response.ok) {
@@ -27,8 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     <button class="action enroll-btn" onclick="enroll(${course.id})">Enroll</button>
                 </div>
             `;
-
-            // Fetch videos for the course
             fetch(`http://localhost:8000/courseshare/course/${courseId}/videos/`)
                 .then(response => {
                     if (!response.ok) {
@@ -37,30 +33,30 @@ document.addEventListener("DOMContentLoaded", function () {
                     return response.json();
                 })
                 .then(videos => {
-                    videos.forEach(video => {
+                    videos.forEach((video, index) => {
                         const videoItem = document.createElement('li');
-                        if (video.video_url.startsWith('http') || video.video_url.startsWith('https')) {
-                            // Handle YouTube or external videos
-                            videoItem.innerHTML = `
-                                <h3>${video.title}</h3>
-                                <iframe width="560" height="315" src="${video.video_url}" frameborder="0" allowfullscreen></iframe>
+                        const buttonId = `video-btn-${index}`;
+                        videoItem.innerHTML = `
+                            <button id="${buttonId}" class="video-btn">${index}.${video.title}</button>
+                            <iframe id="video-iframe-${index}" class="video-iframe" src="${video.video_url}" frameborder="0" allowfullscreen></iframe>
                             `;
+                        if (video.is_preview) {
+                            videoList.appendChild(videoItem);
+                        }
+                        const videoBtn = document.getElementById(buttonId);
+                        const videoIframe = document.getElementById(`video-iframe-${index}`);
+
+                        if (videoBtn && videoIframe) {
+                            videoBtn.addEventListener('click', () => {
+                                if (videoIframe.style.display === 'block') {
+                                    videoIframe.style.display = 'none';
+                                } else {
+                                    videoIframe.style.display = 'block';
+                                }
+                            });
                         } else {
-                            // Assume local video
-                            videoItem.innerHTML = `
-                                <h3>${video.title}</h3>
-                                <video width="560" height="315" controls>
-                                    <source src="${video.video_url}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                            `;
+                            console.error('Button or iframe element not found.');
                         }
-                        if (!video.is_preview) {
-                            const enrollMessage = document.createElement('p');
-                            enrollMessage.innerText = 'This video is available after enrolling in the course.';
-                            videoItem.appendChild(enrollMessage);
-                        }
-                        videoList.appendChild(videoItem);
                     });
                 })
                 .catch(error => console.error('Error fetching videos:', error));

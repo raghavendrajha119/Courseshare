@@ -23,12 +23,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                 </div>
             `;
             courseList.insertAdjacentHTML('beforeend', courseCard);
-            // Add event listener to each course detail
             const enrollButtons = document.querySelectorAll('.enroll-btn');
             enrollButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const courseId = this.getAttribute('data-id');
-                    window.location.href = `course_detail.html?id=${courseId}`;
+                    window.location.href = `enrolledcourse_detail.html?id=${courseId}`;
                 });
             });
         });

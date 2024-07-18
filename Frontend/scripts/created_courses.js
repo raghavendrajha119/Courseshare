@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     })
     .catch(error => console.error('Error fetching courses:', error));
-     // Add Course button functionality
      const addCourseBtn = document.getElementById('add-course-btn');
      addCourseBtn.addEventListener('click', function() {
          window.location.href = 'course_add.html';

@@ -27,8 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const addVideoBtn = document.getElementById('add-video-btn');
     addVideoBtn.addEventListener('click', addVideoField);
-
-    // Handle form submission
     videoForm.addEventListener('submit', function(event) {
         event.preventDefault();
         
@@ -47,8 +45,6 @@ document.addEventListener("DOMContentLoaded", function() {
             };
             videos.push(video);
         });
-
-        // Send data to backend API
         fetch(`http://localhost:8000/courseshare/course/${courseId}/videos/`, {
             method: 'POST',
             headers: {
@@ -65,11 +61,10 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(data => {
             console.log('Videos added successfully:', data);
-            window.location.href = 'index.html';  // Redirect to index.html after adding videos
+            window.location.href = 'index.html';
         })
         .catch(error => {
             console.error('Error adding videos:', error);
-            // Handle error
             document.getElementById('video-error').innerText = 'Error adding videos';
         });
     });

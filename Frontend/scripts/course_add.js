@@ -1,5 +1,3 @@
-// course_add.js
-
 document.addEventListener("DOMContentLoaded", function() {
     const courseForm = document.getElementById('course-form');
     const accessToken = localStorage.getItem('access_token');

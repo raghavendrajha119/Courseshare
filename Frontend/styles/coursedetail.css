@@ -117,6 +117,9 @@ h1 {
 
 #video-list {
     list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0;
 }
 
@@ -124,16 +127,35 @@ h1 {
     margin-bottom: 20px;
 }
 
-#video-list h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+
+.video-btn {
+    background-color: #5c0df0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 10px 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 5px;
+    transition-duration: 0.4s;
 }
 
-#video-list iframe {
+.video-btn:hover {
+    background-color: #3f00b3;
+}
+
+.video-iframe {
+    display: none; /* Initially hide all iframes */
     width: 100%;
     height: 315px;
-    border: none;
+    border: 2px solid #5c0df0; /* Add border for better visibility */
+    margin-top: 10px;
 }
+
 #course-list {
     display: flex;
     justify-content: center;
@@ -141,4 +163,20 @@ h1 {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+}
+.container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25;
+}
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
 }

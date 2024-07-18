@@ -22,7 +22,7 @@ class Courselist_view(APIView):
 
     def post(self, request, *args, **kwargs):
         data = request.data.copy()
-        data['EducatorName'] = request.user.username
+        data['EducatorName'] = request.user.name
         serializer = Courseserializer(data=data)
         if serializer.is_valid():
             serializer.save()
@@ -34,7 +34,7 @@ class Courselistedu_view(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
-        courses = CourseList.objects.filter(EducatorName=request.user.username)
+        courses = CourseList.objects.filter(EducatorName=request.user.name)
         serializer = Courseserializer(courses, many=True)
         return Response(serializer.data)
 
