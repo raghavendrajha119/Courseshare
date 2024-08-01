@@ -173,3 +173,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Stripe API keys
 # STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
 # STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
+# print(STRIPE_PUBLIC_KEY)
