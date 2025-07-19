@@ -1,0 +1,132 @@
+/* styles/footer.css */
+.site-footer {
+    background: #26037f;
+    color: #FFFFFF;
+    padding: 20px 0;
+    text-align: left;
+    position: absolute;
+    
+    width: 100%;
+    left: 0;
+}
+
+.footer-content {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+}
+
+.logo-part {
+    width: 20px;
+    height: 0;
+    transform: rotate(90deg);
+    border: 1px solid #FFFFFF;
+}
+
+.footer-description {
+    margin: 20px 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.footer-menu a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.footer-menu a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-social img {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-contact {
+    margin: 20px 0;
+}
+
+.footer-contact h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.footer-contact p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 50px;
+}
+
+.legal-section {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.legal-section h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 10px;
+}
+
+.legal-section a {
+    display: block;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.legal-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-line {
+    border: 1px solid #FFFFFF;
+    width: 352px;
+    margin: 20px 0;
+}
+
+.footer-copyright {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+}

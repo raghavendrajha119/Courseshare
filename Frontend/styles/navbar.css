@@ -1,0 +1,128 @@
+body a{
+    font-family: 'Montserrat Alternates';
+}
+button{
+    font-family: 'Montserrat Alternates';
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1F1F1F;
+    padding: 10px;
+    font: 'Montserrat Alternates';
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    color: #E0E0E0;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+.dropbtn {
+    background-color: #1F1F1F;
+    color: #E0E0E0;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 15px;
+    position: relative;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+}
+
+.dropdown-content a {
+    color: #E0E0E0;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #444;
+}
+.search-label {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #3D3D3D;
+    padding: 9px;
+    cursor: text;
+}
+
+.search-label:hover {
+    border-color: gray;
+}
+
+.search-label:focus-within {
+    background: #464646;
+    border-color: gray;
+}
+
+.search-label input {
+    outline: none;
+    width: 100%;
+    border: none;
+    background: none;
+    color: rgb(114, 111, 111);
+    padding-left: 5px;
+}
+
+.search-label input:focus + .slash-icon,
+.search-label input:valid + .slash-icon {
+    display: none;
+}
+
+.search-label input:valid ~ .search-icon {
+    display: block;
+}
+
+.search-label svg,
+.slash-icon {
+    position: absolute;
+    color: #7e7e7e;
+}
+
+.search-icon {
+    display: none;
+    width: 12px;
+    height: auto;
+    right: 7px;
+}
+
