@@ -1,33 +1,26 @@
 from django.contrib import admin
-from user_app.models import User
-from django.contrib.auth.admin import UserAdmin as BaseUserModelAdmin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from .models import User
 
-class UserModelAdmin(BaseUserModelAdmin):
-    # The fields to be used in displaying the User model.
-    # These override the definitions on the base UserModelAdmin
-    # that reference specific fields on auth.User.
-    list_display = ["id","email", "name", "tc","is_admin"]
-    list_filter = ["is_admin"]
-    fieldsets = [
-        (None, {"fields": ["email", "password"]}),
-        ("Personal info", {"fields": ["name","tc"]}),
-        ("Permissions", {"fields": ["is_admin"]}),
-    ]
-    # add_fieldsets is not a standard ModelAdmin attribute. UserModelAdmin
-    # overrides get_fieldsets to use this attribute when creating a user.
-    add_fieldsets = [
-        (
-            None,
-            {
-                "classes": ["wide"],
-                "fields": ["email", "name","tc", "password1", "password2"],
-            },
-        ),
-    ]
-    search_fields = ["email"]
-    ordering = ["email","id"]
-    filter_horizontal = []
+class UserAdmin(BaseUserAdmin):
+    list_display = ('email', 'name', 'is_admin', 'is_staff')
+    search_fields = ('email', 'name')
+    readonly_fields = ('created_at', 'updated_at')
 
+    fieldsets = (
+        (None, {'fields': ('email', 'name', 'password')}),
+        ('Permissions', {'fields': ('is_admin', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+        ('Personal', {'fields': ('tc', 'profile_image', 'bio', 'dob')}),
+        ('Timestamps', {'fields': ('created_at', 'updated_at')}),
+    )
 
-# Now register the new UserModelAdmin...
-admin.site.register(User, UserModelAdmin)
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'name', 'tc', 'password1', 'password2'),
+        }),
+    )
+
+    ordering = ('email',)
+
+admin.site.register(User, UserAdmin)

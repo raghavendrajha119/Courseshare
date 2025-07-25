@@ -9,7 +9,7 @@ from ..api.serializers import UserRegisterationSerializer,UserLoginSerializer,Us
 from user_app.renderers import UserRenderer
 
 
-#Generate token manually
+#Generated token manually
 def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)
 

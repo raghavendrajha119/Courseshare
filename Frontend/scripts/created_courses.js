@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
     }
 
-    fetch('http://localhost:8000/courseshare/coursebyeducator/', {
+    fetch('http://localhost:8000/courseshare/courses/my/', {
         headers: {
             'Authorization': `Bearer ${accessToken}`,
         }

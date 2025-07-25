@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const courseId = urlParams.get('courseId');
     const token = localStorage.getItem('access_token');
 
-    fetch(`http://localhost:8000/courseshare/course/${courseId}`)
+    fetch(`http://localhost:8000/courseshare/courses/${courseId}`)
         .then(response => response.json())
         .then(course => {
             document.getElementById('course-id').textContent = course.id;
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById('payment-form').addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        fetch(`http://localhost:8000/courseshare/course/${courseId}/enroll/`, {
+        fetch(`http://localhost:8000/courseshare/enroll/${courseId}/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

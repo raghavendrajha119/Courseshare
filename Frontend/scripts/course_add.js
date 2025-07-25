@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
         const formData = new FormData(courseForm);
 
-        fetch('http://localhost:8000/courseshare/course/', {
+        fetch('http://localhost:8000/courseshare/courses/', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
