@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const videoList = document.getElementById('video-list');
     const urlParams = new URLSearchParams(window.location.search);
     const courseId = urlParams.get('id');
-    fetch(`http://localhost:8000/courseshare/course/${courseId}`)
+    fetch(`http://localhost:8000/courseshare/courses/${courseId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <button class="action enroll-btn" onclick="enroll(${course.id})">Enroll</button>
                 </div>
             `;
-            fetch(`http://localhost:8000/courseshare/course/${courseId}/videos/`)
+            fetch(`http://localhost:8000/courseshare/courses/${courseId}/videos/`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');

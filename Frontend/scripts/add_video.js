@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
             };
             videos.push(video);
         });
-        fetch(`http://localhost:8000/courseshare/course/${courseId}/videos/`, {
+        fetch(`http://localhost:8000/courseshare/courses/${courseId}/videos/`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${accessToken}`,

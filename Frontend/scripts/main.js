@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const courseList = document.getElementById('course-list');
     function fetchAndRenderCourses() {
-        fetch('http://localhost:8000/courseshare/course/')
+        fetch('http://localhost:8000/courseshare/courses/')
             .then(response => response.json())
             .then(courses => {
                 renderCourses(courses);
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.querySelector('.search-label input');
     searchInput.addEventListener('input', function() {
         const searchTerm = this.value.toLowerCase().trim();
-        fetch('http://localhost:8000/courseshare/course/')
+        fetch('http://localhost:8000/courseshare/courses/')
             .then(response => response.json())
             .then(courses => {
                 const filteredCourses = courses.filter(course => {

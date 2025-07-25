@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async function () {
     const token = localStorage.getItem('access_token');
 
-    fetch('http://localhost:8000/courseshare/enrolled_courses/', {
+    fetch('http://localhost:8000/courseshare/enrollments/', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
