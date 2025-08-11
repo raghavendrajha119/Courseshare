@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import CourseList, Enrollment, Video
+from ..models import CourseList, Enrollment, Video, Task
 from datetime import timedelta
 import json
 
@@ -71,3 +71,9 @@ class EnrollmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Enrollment
         fields = ['user', 'course', 'enrolled_date']
+        
+class TaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = "__all__"
+        read_only_fields = ["user", "time_left_in_days", "late_flag", "other_tasks_pending"]

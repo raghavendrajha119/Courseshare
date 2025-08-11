@@ -33,3 +33,40 @@ class Video(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Task(models.Model):
+    TASK_TYPES = [
+        ("Assignment","Assignment"),
+        ("Quiz", "Quiz"),
+        ("Project", "Project"),
+        ("Exam Prep", "Exam Prep"),
+        ("Lab Report", "Lab Report"),
+    ]
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name="tasks")
+    task_type = models.CharField(max_length=50, choices=TASK_TYPES)
+    start_date = models.DateField()
+    deadline = models.DateField()
+    completed_date = models.DateField(blank=True, null=True)
+    time_left_in_days = models.IntegerField()
+    other_tasks_pending = models.IntegerField(default=0)
+    late_flag = models.BooleanField(null=True, blank=True)  # Filled after completion
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ["-created_at"]
+
+    def save(self, *args, **kwargs):
+        # Auto-calculate time_left_in_days if not set
+        if self.start_date and self.deadline:
+            self.time_left_in_days = (self.deadline - self.start_date).days
+        
+        # Auto-set late_flag if completed_date is present
+        if self.completed_date and self.deadline:
+            self.late_flag = self.completed_date > self.deadline
+
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.task_type} ({self.user.email})"

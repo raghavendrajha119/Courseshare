@@ -12,6 +12,7 @@ import UpdateProfile from "./pages/UpdateProfilePage"
 import AddCourse from "./components/CourseDetail/AddCourse";
 import MyCourses from "./components/CourseDetail/MyCourses";
 import UpdateCourse from "./components/CourseDetail/UpdateCourse";
+import { Toaster } from "./components/ui/sonner";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/update-course/:id" element={<UpdateCourse/>} />
           <Route path="/my-courses" element={<MyCourses/>} />
         </Routes>
+        <Toaster />
       </div>
       <Footer/>
     </Router>

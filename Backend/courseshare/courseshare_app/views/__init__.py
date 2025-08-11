@@ -14,3 +14,9 @@ from .video_views import (
 from .payment_views import (
     StripeCheckoutSessionAPIView,
 )
+from .tasks_views import (
+    TaskListCreateView,
+    TaskUpdateCompleteView,
+    TaskUpdateView,
+    TaskDeleteView,
+)

@@ -60,13 +60,17 @@ const AddCourse = () => {
     setVideos(updated);
   };
 
+  const fieldLabels = {
+    Coursename: "Course Name",
+    Institutename: "Institute Name",
+    Language: "Language",
+    Coursefee: "Course Fee",
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const fullDuration = `${duration.hours.padStart(2, "0")}:${duration.mins.padStart(
-      2,
-      "0"
-    )}:${duration.sec.padStart(2, "0")}`;
+    const fullDuration = `${duration.hours.padStart(2, "0")}:${duration.mins.padStart(2,"0")}:${duration.sec.padStart(2, "0")}`;
 
     const courseData = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
@@ -88,23 +92,20 @@ const AddCourse = () => {
     <div className="max-w-2xl mx-auto p-6 bg-white shadow-xl rounded-2xl mt-6">
       <h2 className="text-2xl font-semibold mb-4">Create New Course</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        {[
-          "Coursename",
-          "Institutename",
-          "Language",
-          "Coursefee",
-        ].map((field) => (
-          <div key={field}>
-            <Label htmlFor={field}>{field}</Label>
+
+        {Object.entries(fieldLabels).map(([key, label]) => (
+          <div key={key}>
+            <Label htmlFor={key}>{label}</Label>
             <Input
-              id={field}
-              name={field}
+              id={key}
+              name={key}
               onChange={handleChange}
-              value={formData[field]}
+              value={formData[key]}
               required
             />
           </div>
         ))}
+
 
         <div>
           <Label htmlFor="Details">Details</Label>
@@ -120,7 +121,7 @@ const AddCourse = () => {
               min="0"
               max="23"
               placeholder="HH"
-              name="hh"
+              name="hours"
               value={duration.hours}
               onChange={handleDurationChange}
               className="w-20"
@@ -132,7 +133,7 @@ const AddCourse = () => {
               min="0"
               max="59"
               placeholder="MM"
-              name="mm"
+              name="mins"
               value={duration.mins}
               onChange={handleDurationChange}
               className="w-20"
@@ -144,7 +145,7 @@ const AddCourse = () => {
               min="0"
               max="59"
               placeholder="SS"
-              name="ss"
+              name="sec"
               value={duration.sec}
               onChange={handleDurationChange}
               className="w-20"
@@ -163,7 +164,7 @@ const AddCourse = () => {
             <SelectTrigger>
               <SelectValue placeholder="Select Category" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white">
               <SelectItem value="Tech">Tech</SelectItem>
               <SelectItem value="Business">Business</SelectItem>
               <SelectItem value="Arts">Arts</SelectItem>
@@ -181,7 +182,7 @@ const AddCourse = () => {
             <SelectTrigger>
               <SelectValue placeholder="Select Level" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-white">
               <SelectItem value="beginner">Beginner</SelectItem>
               <SelectItem value="intermediate">Intermediate</SelectItem>
               <SelectItem value="advanced">Advanced</SelectItem>

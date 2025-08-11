@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const updateCourse = async (id, courseData) => {
   try {
-    const token = localStorage.getItem("access");
+    const token = localStorage.getItem("access_token");
     const response = await axios.put(
       `http://localhost:8000/courseshare/courses/${id}/`,
       courseData,
